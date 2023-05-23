@@ -12,10 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col h-screen justify-between">
         <AppProvider>
         <Navbar />
-          <div className="px-24 py-5">{children}</div>
+          <div className="px-24 py-5 mb-auto">{children}</div>
         <Footer />
         </AppProvider>
       </body>

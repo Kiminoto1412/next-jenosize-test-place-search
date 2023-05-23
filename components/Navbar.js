@@ -6,17 +6,18 @@ import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useAppContext } from "../app/context/appContext";
+import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 export default function Navbar() {
-  const { setFetchData, fetchData } = useAppContext();
+  const router = useRouter();
+  const { setFetchData } = useAppContext();
   const [search, setSearch] = useState("");
 
   const fetchPlaceSearchByKeyword = async () => {
     let res = await getPlaceSearchByKeyword(search);
-    console.log(res.data.results);
-
+    // console.log(res.data.results);
     setFetchData(res.data.results);
-    console.log(fetchData);
   };
 
   const handleSearchChange = (e) => {
@@ -24,17 +25,16 @@ export default function Navbar() {
   };
 
   const handleSearchClick = async (e) => {
-    setSearch(e.target.value);
     fetchPlaceSearchByKeyword(e.target.value);
-    setSearch(e.target.value);
+    router.push("/restaurant");
   };
   return (
     <nav>
       <div className="flex justify-between items-center p-5 border-b-[1px] ">
-        <div className="flex justify-center items-center">
+        <Link href="/" className="flex justify-center items-center">
           <Image src="/jenosizeLogo.png" width={120} height={100} alt="logo" />
           <h1 className="ml-5 font-bold">Jenosize Web</h1>
-        </div>
+        </Link>
         {/* search */}
         <div className="flex gap-5">
           <div className="relative">
@@ -43,7 +43,7 @@ export default function Navbar() {
             </div>
             <input
               name="search"
-              className="w-full pl-7 pr-5 md:w-64 h-9  border-gray-500 rounded sm:text-sm focus:border-blue-500 focus:ring-0 focus:w-96 duration-300 border-2 focus:outline-none"
+              className="w-full pl-7 pr-5 md:w-64 h-9  border-gray-500 rounded sm:text-sm focus:border-blue-500 focus:ring-0 md:focus:w-96 duration-300 border-2 focus:outline-none"
               placeholder="Search"
               type="search"
               onChange={handleSearchChange}
