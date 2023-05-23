@@ -26,7 +26,7 @@ export default function Navbar() {
 
   const handleSearchClick = async (e) => {
     fetchPlaceSearchByKeyword(e.target.value);
-    router.push("/restaurant");
+    router.push("/placeSearch");
   };
   return (
     <nav>

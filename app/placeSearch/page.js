@@ -19,6 +19,7 @@ export default function page() {
                   <img
                     src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${el.photos?.[0].photo_reference}&key=${GOOGLE_API_KEY}`}
                     alt="Restaurant Photo"
+                    className="object-fill sm:w-full"
                   />
                 </div>
                 <div className="col-span-3">
