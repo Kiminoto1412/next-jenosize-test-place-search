@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className="flex flex-col h-screen justify-between">
         <AppProvider>
         <Navbar />
-          <div className="px-24 py-5 mb-auto">{children}</div>
+          <div className="px-5 sm:px-10 md:px-16 lg:px-24 py-5 mb-auto">{children}</div>
         <Footer />
         </AppProvider>
       </body>

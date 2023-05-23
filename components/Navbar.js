@@ -30,8 +30,8 @@ export default function Navbar() {
   };
   return (
     <nav>
-      <div className="flex justify-between items-center p-5 border-b-[1px] ">
-        <Link href="/" className="flex justify-center items-center">
+      <div className="sm:flex justify-between items-center p-5 border-b-[1px] ">
+        <Link href="/" className="flex  items-center">
           <Image src="/jenosizeLogo.png" width={120} height={100} alt="logo" />
           <h1 className="ml-5 font-bold">Jenosize Web</h1>
         </Link>
